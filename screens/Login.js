@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { Icon } from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Login = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const openRegisterScreen = () => {
+        navigation.navigate('Register'); // TODO: broken
+    };
 
     return (
         <View style={styles.container}>
@@ -25,10 +29,11 @@ const Login = ({navigation}) => {
                 secureTextEntry
             />
             <Button title='sign in' style={styles.button} />
-            <Button title='register' style={styles.button} />
+            <Button title='register' style={styles.button} onPress={openRegisterScreen} />
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
